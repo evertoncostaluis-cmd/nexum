@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, follow">
+  <meta name="description" content="Responda 8 perguntas e escolha o horário da sua consultoria gratuita de 1h20 com a Nexum Consultoria.">
+  <meta name="theme-color" content="#091929">
+  <title>Consultoria Gratuita · 1h20 | Nexum Consultoria</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #091929;
+      --color-container: #0D2137;
+      --color-card: #132F4C;
+      --color-card-hover: #1A3D61;
+      --color-card-selected: #E8A020;
+      --color-accent: #E8A020;
+      --color-accent-hover: #D4911A;
+      --color-text: #FFFFFF;
+      --color-text-soft: #A8B8C8;
+      --color-success: #2ECC8A;
+      --color-progress: #E8A020;
+      --color-border: #1E3A55;
+      --color-whatsapp: #25D366;
+      --color-danger: #FF8585;
+      --color-shadow: rgba(0, 0, 0, 0.40);
+      --color-accent-wash: rgba(232, 160, 32, 0.08);
+      --color-accent-focus: rgba(232, 160, 32, 0.19);
+      --color-noise: rgba(255, 255, 255, 0.035);
+      --font-display: 'Sora', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-card: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      color: var(--color-text);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(19, 47, 76, 0.56), transparent 48%),
+        var(--color-bg);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 34px 16px 20px;
+    }
+
+    .site-header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 27px;
+      text-align: center;
+    }
+
+    .brand {
+      color: var(--color-text);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.075em;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .brand-dot {
+      color: var(--color-accent);
+    }
+
+    .offer-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 31px;
+      padding: 5px 15px;
+      border: 1px solid var(--color-accent);
+      border-radius: 999px;
+      background: var(--color-accent-wash);
+      color: var(--color-accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .offer-spark {
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .main-content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-card,
+    .success-screen {
+      width: min(100%, 560px);
+      border: 1px solid rgba(168, 184, 200, 0.08);
+      border-radius: var(--radius-card);
+      background: var(--color-container);
+      box-shadow: 0 24px 60px var(--color-shadow);
+    }
+
+    .form-card {
+      padding: 34px 40px 36px;
+    }
+
+    .progress-area {
+      margin-bottom: 31px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 4px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--color-border);
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--color-progress);
+      transition: width 0.4s ease;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    .step-counter {
+      color: var(--color-text-soft);
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.015em;
+    }
+
+    .step {
+      min-width: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(7px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .step.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .step-kicker {
+      margin: 0 0 12px;
+      color: var(--color-text-soft);
+      font-size: 0.69rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .step-title {
+      margin: 0;
+      color: var(--color-text);
+      font-family: var(--font-display);
+      font-size: clamp(1.28rem, 4vw, 1.48rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.38;
+    }
+
+    .step-description {
+      margin: 10px 0 0;
+      color: var(--color-text-soft);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .options-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .option-card {
+      width: 100%;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 13px 16px 13px 18px;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: var(--color-card);
+      color: var(--color-text);
+      cursor: pointer;
+      text-align: left;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .option-card:hover {
+      border-color: rgba(232, 160, 32, 0.65);
+      background: var(--color-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .option-card:active {
+      transform: scale(0.99);
+    }
+
+    .option-text {
+      font-size: 0.86rem;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .option-check {
+      width: 21px;
+      height: 21px;
+      flex: 0 0 21px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(168, 184, 200, 0.42);
+      border-radius: 50%;
+      color: transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .option-check svg {
+      width: 12px;
+      height: 12px;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .option-card.selected {
+      border: 2px solid var(--color-accent);
+      padding: 12px 15px 12px 17px;
+      background: var(--color-accent-wash);
+      box-shadow: 0 0 0 2px rgba(232, 160, 32, 0.04);
+    }
+
+    .option-card.selected .option-check {
+      border-color: var(--color-accent);
+      background: var(--color-accent);
+      color: var(--color-container);
+    }
+
+    .context-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 22px 0 0;
+      color: var(--color-text-soft);
+      font-size: 0.76rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .context-note svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+      margin-top: 2px;
+      color: var(--color-accent);
+      stroke: currentColor;
+      stroke-width: 1.7;
+      fill: none;
+    }
+
+    .step-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 28px;
+      margin-top: 22px;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 0;
+      border: 0;
+      background: transparent;
+      color: var(--color-text-soft);
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .back-button:hover {
+      color: var(--color-text);
+    }
+
+    .back-button svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .contact-fields {
+      display: grid;
+      gap: 15px;
+      margin-top: 23px;
+    }
+
+    .field {
+      min-width: 0;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--color-text);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .field input {
+      width: 100%;
+      min-height: 50px;
+      padding: 13px 15px;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      outline: none;
+      background: var(--color-card);
+      color: var(--color-text);
+      font-size: 0.88rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .field input::placeholder {
+      color: var(--color-text-soft);
+      opacity: 0.78;
+    }
+
+    .field input:focus {
+      border-color: var(--color-accent);
+      background: var(--color-card);
+      box-shadow: 0 0 0 3px var(--color-accent-focus);
+    }
+
+    .field input[aria-invalid="true"] {
+      border-color: var(--color-danger);
+    }
+
+    .field-error {
+      display: block;
+      min-height: 0;
+      margin-top: 5px;
+      color: var(--color-danger);
+      font-size: 0.7rem;
+      line-height: 1.4;
+    }
+
+    .submit-button {
+      width: 100%;
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+      padding: 15px 20px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--color-accent);
+      color: var(--color-container);
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.015em;
+      line-height: 1.35;
+      text-align: center;
+      transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .submit-button:not(:disabled):hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .submit-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.42;
+    }
+
+    .submit-button .button-arrow {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .privacy-note {
+      max-width: 390px;
+      margin: 14px auto 0;
+      color: var(--color-text-soft);
+      font-size: 0.69rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .success-screen {
+      padding: 43px 40px 38px;
+      text-align: center;
+      animation: successFade 0.35s ease both;
+    }
+
+    .success-icon {
+      width: 68px;
+      height: 68px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 22px;
+      border: 1px solid rgba(46, 204, 138, 0.42);
+      border-radius: 50%;
+      background: rgba(46, 204, 138, 0.10);
+      color: var(--color-success);
+      animation: successPop 0.4s ease-out both;
+    }
+
+    .success-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .success-title {
+      margin: 0;
+      color: var(--color-text);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 1.3;
+    }
+
+    .success-subtitle {
+      margin: 10px 0 0;
+      color: var(--color-text-soft);
+      font-size: 0.88rem;
+    }
+
+    .next-steps {
+      display: grid;
+      gap: 15px;
+      margin: 27px 0 25px;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+    }
+
+    .next-steps li {
+      display: grid;
+      grid-template-columns: 27px 1fr;
+      align-items: start;
+      gap: 11px;
+      color: var(--color-text);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(232, 160, 32, 0.38);
+      border-radius: 50%;
+      background: var(--color-accent-wash);
+      color: var(--color-accent);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .success-divider {
+      height: 1px;
+      margin: 25px 0 22px;
+      border: 0;
+      background: var(--color-border);
+    }
+
+    .success-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .success-stat {
+      min-height: 82px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 12px 8px;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: rgba(19, 47, 76, 0.58);
+    }
+
+    .success-stat strong {
+      color: var(--color-accent);
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1.2;
+    }
+
+    .success-stat span {
+      color: var(--color-text-soft);
+      font-size: 0.68rem;
+      line-height: 1.35;
+    }
+
+    .whatsapp-button {
+      width: 100%;
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 20px;
+      border-radius: 999px;
+      background: var(--color-whatsapp);
+      color: var(--color-text);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: filter 0.2s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-button:hover {
+      filter: brightness(0.94);
+      transform: translateY(-1px);
+    }
+
+    .whatsapp-button svg {
+      width: 21px;
+      height: 21px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .site-footer {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 20px 16px 25px;
+      color: var(--color-text-soft);
+      font-size: 0.69rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .site-footer p {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .site-footer .footer-separator {
+      padding: 0 5px;
+      color: var(--color-accent);
+    }
+
+    @keyframes successPop {
+      from { opacity: 0; transform: scale(0); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes successFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .page-shell {
+        padding: 25px 12px 16px;
+      }
+
+      .site-header {
+        gap: 13px;
+        margin-bottom: 21px;
+      }
+
+      .brand {
+        font-size: 1.48rem;
+      }
+
+      .form-card {
+        padding: 28px 22px 27px;
+        border-radius: 20px;
+      }
+
+      .progress-area {
+        margin-bottom: 27px;
+      }
+
+      .step-title {
+        font-size: 1.31rem;
+      }
+
+      .options-list {
+        gap: 9px;
+        margin-top: 21px;
+      }
+
+      .option-card {
+        min-height: 52px;
+        padding: 12px 13px 12px 15px;
+      }
+
+      .option-card.selected {
+        padding: 11px 12px 11px 14px;
+      }
+
+      .option-text {
+        font-size: 0.82rem;
+      }
+
+      .context-note {
+        margin-top: 19px;
+      }
+
+      .success-screen {
+        padding: 34px 22px 27px;
+        border-radius: 20px;
+      }
+
+      .success-title {
+        font-size: 1.42rem;
+      }
+
+      .site-footer {
+        padding-top: 18px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .page-shell {
+        justify-content: center;
+        padding-top: 38px;
+        padding-bottom: 24px;
+      }
+
+      .site-header {
+        margin-bottom: 29px;
+      }
+
+      .form-card {
+        padding: 40px 48px;
+      }
+
+      .success-screen {
+        padding: 43px 48px 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .redirect-spinner {
+      width: 42px;
+      height: 42px;
+      margin: 28px auto 24px;
+      border: 3px solid var(--color-border);
+      border-top-color: var(--color-accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    .redirect-info {
+      max-width: 390px;
+      margin: 0 auto;
+      color: var(--color-text-soft);
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+    .calendly-fallback {
+      display: inline-block;
+      margin-top: 23px;
+      color: var(--color-accent);
+      text-underline-offset: 4px;
+      font-size: 0.83rem;
+      font-weight: 600;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand" aria-label="Nexum Consultoria">NEXUM<span class="brand-dot">.</span></div>
+      <div class="offer-badge"><span class="offer-spark" aria-hidden="true">✦</span> Consultoria Gratuita · 1h20</div>
+    </header>
+
+    <main class="main-content">
+      <form class="form-card" id="leadForm" novalidate>
+        <div class="progress-area" aria-label="Progresso do formulário">
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-meta">
+            <span class="step-counter" id="stepCounter" aria-live="polite">Pergunta 1 de 8</span>
+          </div>
+        </div>
+
+        <section class="step active" data-step="1" aria-labelledby="question1">
+          <p class="step-kicker">Sobre sua operação</p>
+          <h1 class="step-title" id="question1">Como você descreveria sua operação hoje?</h1>
+          <div class="options-list">
+            <button class="option-card" type="button" data-key="perfil" data-value="Ainda estou começando, sem CNPJ" aria-pressed="false">
+              <span class="option-text">Ainda estou começando, sem CNPJ</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="perfil" data-value="Já vendo mas fatura menos de R$ 30 mil/mês" aria-pressed="false">
+              <span class="option-text">Já vendo, mas faturo menos de R$ 30 mil/mês</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="perfil" data-value="Fatura acima de R$ 30 mil/mês e quer escalar" aria-pressed="false">
+              <span class="option-text">Faturo acima de R$ 30 mil/mês e quero escalar</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="perfil" data-value="Tenho marca própria ou produto exclusivo" aria-pressed="false">
+              <span class="option-text">Tenho marca própria ou produto exclusivo</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="perfil" data-value="Distribuo ou revendo produtos de terceiros" aria-pressed="false">
+              <span class="option-text">Distribuo ou revendo produtos de terceiros</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+          </div>
+          <p class="context-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+            A Nexum já acompanhou mais de R$ 100 milhões em faturamento.
+          </p>
+        </section>
+
+        <section class="step" data-step="2" aria-labelledby="question2" hidden>
+          <p class="step-kicker">Regime tributário</p>
+          <h2 class="step-title" id="question2">Qual é o regime tributário da sua empresa?</h2>
+          <div class="options-list">
+            <button class="option-card" type="button" data-key="regime_tributario" data-value="Ainda não tenho empresa ou CNPJ" aria-pressed="false">
+              <span class="option-text">Ainda não tenho empresa ou CNPJ</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="regime_tributario" data-value="MEI" aria-pressed="false">
+              <span class="option-text">MEI</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="regime_tributario" data-value="Simples Nacional" aria-pressed="false">
+              <span class="option-text">Simples Nacional</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="regime_tributario" data-value="Lucro Presumido ou Lucro Real" aria-pressed="false">
+              <span class="option-text">Lucro Presumido ou Lucro Real</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+          </div>
+          <p class="context-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+            A Nexum atua em todos os regimes tributários.
+          </p>
+          <div class="step-footer">
+            <button class="back-button" type="button" data-back><svg viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Voltar</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="3" aria-labelledby="question3" hidden>
+          <p class="step-kicker">Canais de venda</p>
+          <h2 class="step-title" id="question3">Qual é o seu principal canal de vendas hoje?</h2>
+          <div class="options-list">
+            <button class="option-card" type="button" data-key="canal_principal" data-value="Ainda não comecei a vender" aria-pressed="false">
+              <span class="option-text">Ainda não comecei a vender</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="canal_principal" data-value="Shopee" aria-pressed="false">
+              <span class="option-text">Shopee</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="canal_principal" data-value="Mercado Livre" aria-pressed="false">
+              <span class="option-text">Mercado Livre</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="canal_principal" data-value="TikTok Shop ou Shein" aria-pressed="false">
+              <span class="option-text">TikTok Shop ou Shein</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="canal_principal" data-value="Vendo em vários marketplaces ao mesmo tempo" aria-pressed="false">
+              <span class="option-text">Vendo em vários marketplaces ao mesmo tempo</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+          </div>
+          <p class="context-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+            Atendemos Shopee, Mercado Livre, Shein, TikTok Shop e mais.
+          </p>
+          <div class="step-footer">
+            <button class="back-button" type="button" data-back><svg viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Voltar</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="4" aria-labelledby="question4" hidden>
+          <p class="step-kicker">Faturamento</p>
+          <h2 class="step-title" id="question4">Qual foi o seu faturamento total nos últimos 30 dias?</h2>
+          <div class="options-list">
+            <button class="option-card" type="button" data-key="faturamento_30_dias" data-value="Ainda não tive faturamento" aria-pressed="false">
+              <span class="option-text">Ainda não tive faturamento</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="faturamento_30_dias" data-value="Até R$ 5 mil" aria-pressed="false">
+              <span class="option-text">Até R$ 5 mil</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="faturamento_30_dias" data-value="De R$ 5 mil a R$ 30 mil" aria-pressed="false">
+              <span class="option-text">De R$ 5 mil a R$ 30 mil</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="faturamento_30_dias" data-value="De R$ 30 mil a R$ 300 mil" aria-pressed="false">
+              <span class="option-text">De R$ 30 mil a R$ 300 mil</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="faturamento_30_dias" data-value="Acima de R$ 300 mil" aria-pressed="false">
+              <span class="option-text">Acima de R$ 300 mil</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+          </div>
+          <p class="context-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+            Atendemos desde quem está começando do zero.
+          </p>
+          <div class="step-footer">
+            <button class="back-button" type="button" data-back><svg viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Voltar</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="5" aria-labelledby="question5" hidden>
+          <p class="step-kicker">Estrutura</p>
+          <h2 class="step-title" id="question5">Quantas pessoas trabalham na sua operação hoje?</h2>
+          <div class="options-list">
+            <button class="option-card" type="button" data-key="tamanho_equipe" data-value="Só eu" aria-pressed="false">
+              <span class="option-text">Só eu</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="tamanho_equipe" data-value="De 2 a 5 pessoas" aria-pressed="false">
+              <span class="option-text">De 2 a 5 pessoas</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="tamanho_equipe" data-value="De 6 a 20 pessoas" aria-pressed="false">
+              <span class="option-text">De 6 a 20 pessoas</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="tamanho_equipe" data-value="Mais de 20 pessoas" aria-pressed="false">
+              <span class="option-text">Mais de 20 pessoas</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+          </div>
+          <p class="context-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+            A Nexum complementa qualquer tamanho de equipe.
+          </p>
+          <div class="step-footer">
+            <button class="back-button" type="button" data-back><svg viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Voltar</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="6" aria-labelledby="question6" hidden>
+          <p class="step-kicker">Experiência anterior</p>
+          <h2 class="step-title" id="question6">Você já trabalhou com alguma consultoria de marketplaces?</h2>
+          <div class="options-list">
+            <button class="option-card" type="button" data-key="consultoria_anterior" data-value="Sim, já trabalhei com uma consultoria" aria-pressed="false">
+              <span class="option-text">Sim, já trabalhei com uma consultoria</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="consultoria_anterior" data-value="Não, seria minha primeira vez" aria-pressed="false">
+              <span class="option-text">Não, seria minha primeira vez</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+          </div>
+          <p class="context-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+            Seu histórico muda a forma como conduzimos o próximo passo.
+          </p>
+          <div class="step-footer">
+            <button class="back-button" type="button" data-back><svg viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Voltar</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="7" aria-labelledby="question7" hidden>
+          <p class="step-kicker">Momento</p>
+          <h2 class="step-title" id="question7">Quando você quer começar?</h2>
+          <div class="options-list">
+            <button class="option-card" type="button" data-key="quando_comecar" data-value="Quero começar agora" aria-pressed="false">
+              <span class="option-text">Quero começar agora</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="quando_comecar" data-value="Nos próximos 30 dias" aria-pressed="false">
+              <span class="option-text">Nos próximos 30 dias</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="quando_comecar" data-value="Nos próximos 3 meses" aria-pressed="false">
+              <span class="option-text">Nos próximos 3 meses</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="quando_comecar" data-value="Ainda estou avaliando" aria-pressed="false">
+              <span class="option-text">Ainda estou avaliando</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+          </div>
+          <p class="context-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+            Sem fidelidade. Pode sair com 30 dias de aviso.
+          </p>
+          <div class="step-footer">
+            <button class="back-button" type="button" data-back><svg viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Voltar</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="8" aria-labelledby="question8" hidden>
+          <p class="step-kicker">Última pergunta</p>
+          <h2 class="step-title" id="question8">Você já conhecia a Nexum antes de chegar aqui?</h2>
+          <div class="options-list">
+            <button class="option-card" type="button" data-key="conhecia_nexum" data-value="Sim, já conhecia" aria-pressed="false">
+              <span class="option-text">Sim, já conhecia</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+            <button class="option-card" type="button" data-key="conhecia_nexum" data-value="Não, conheci agora" aria-pressed="false">
+              <span class="option-text">Não, conheci agora</span>
+              <span class="option-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3.2 3.2L13 4.5"/></svg></span>
+            </button>
+          </div>
+          <p class="context-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+            Agora só faltam seus dados para concluir.
+          </p>
+          <div class="step-footer">
+            <button class="back-button" type="button" data-back><svg viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Voltar</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="9" aria-labelledby="contactTitle" hidden>
+          <p class="step-kicker">Seus dados</p>
+          <h2 class="step-title" id="contactTitle">Como nosso time pode falar com você?</h2>
+          <p class="step-description">Usaremos seus dados apenas para agendar sua consultoria gratuita.</p>
+
+          <div class="contact-fields">
+            <div class="field">
+              <label for="nome">Nome completo</label>
+              <input id="nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required>
+              <span class="field-error" id="nomeError"></span>
+            </div>
+
+            <div class="field">
+              <label for="empresa">Nome da empresa</label>
+              <input id="empresa" name="empresa" type="text" placeholder="Nome da sua empresa" autocomplete="organization" required>
+              <span class="field-error" id="empresaError"></span>
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" inputmode="email" required>
+              <span class="field-error" id="emailError"></span>
+            </div>
+
+            <div class="field">
+              <label for="whatsapp">WhatsApp com DDD</label>
+              <input id="whatsapp" name="whatsapp" type="tel" placeholder="(47) 99999-9999" autocomplete="tel" inputmode="numeric" maxlength="16" required>
+              <span class="field-error" id="whatsappError"></span>
+            </div>
+          </div>
+
+          <button class="submit-button" id="submitButton" type="submit" disabled>
+            AGENDAR MINHA CONSULTORIA GRATUITA
+            <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+          </button>
+
+          <p class="privacy-note">Seus dados serão encaminhados ao Calendly para pré-preencher o agendamento. O horário só estará confirmado após você finalizar a reserva lá.</p>
+
+          <div class="step-footer">
+            <button class="back-button" type="button" data-back><svg viewBox="0 0 24 24"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Voltar</button>
+          </div>
+        </section>
+      </form>
+
+      <section class="success-screen" id="successScreen" aria-labelledby="successTitle" role="status" aria-live="polite" hidden>
+        <div class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></svg>
+        </div>
+        <h1 class="success-title" id="successTitle">Perfeito! Escolha seu horário.</h1>
+        <p class="success-subtitle">Estamos te redirecionando para o agendamento...</p>
+        <div class="redirect-spinner" aria-hidden="true"></div>
+        <p class="redirect-info">A reunião será pelo Google Meet. Após confirmar o agendamento no Calendly, você receberá as informações pelo e-mail informado.</p>
+        <a id="calendlyFallback" class="calendly-fallback" href="https://calendly.com/evertoncostaluis/consultoria-gratuita-1h20" rel="nofollow">Abrir agendamento agora</a>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2026 Nexum Consultoria <span class="footer-separator">·</span> Política de privacidade</p>
+  </footer>
+
+  <script>
+    const formState = {
+      currentStep: 1,
+      totalSteps: 8,
+      answers: {},
+      isSubmitting: false,
+      isTransitioning: false,
+      selectionPending: false
+    };
+
+    const CALENDLY_BASE_URL = 'https://calendly.com/evertoncostaluis/consultoria-gratuita-1h20';
+    const form = document.getElementById('leadForm');
+    const progressFill = document.getElementById('progressFill');
+    const stepCounter = document.getElementById('stepCounter');
+    const submitButton = document.getElementById('submitButton');
+    const successScreen = document.getElementById('successScreen');
+    const whatsappInput = document.getElementById('whatsapp');
+
+    const steps = Array.from(document.querySelectorAll('.step'));
+    const contactFields = {
+      nome: document.getElementById('nome'),
+      empresa: document.getElementById('empresa'),
+      email: document.getElementById('email'),
+      whatsapp: whatsappInput
+    };
+
+    function updateProgress() {
+      const percentage = ((formState.currentStep - 1) / (formState.totalSteps + 1)) * 100;
+      progressFill.style.width = percentage + '%';
+    }
+
+    function updateStepCounter() {
+      if (formState.currentStep <= formState.totalSteps) {
+        stepCounter.textContent = 'Pergunta ' + formState.currentStep + ' de ' + formState.totalSteps;
+      } else {
+        stepCounter.textContent = 'Quase lá!';
+      }
+    }
+
+    function goToStep(nextStep) {
+      if (formState.isTransitioning || nextStep < 1 || nextStep > 9) return;
+
+      const currentElement = document.querySelector('.step[data-step="' + formState.currentStep + '"]');
+      const nextElement = document.querySelector('.step[data-step="' + nextStep + '"]');
+
+      if (!currentElement || !nextElement || currentElement === nextElement) return;
+
+      formState.isTransitioning = true;
+      currentElement.classList.remove('active');
+
+      window.setTimeout(() => {
+        currentElement.hidden = true;
+        nextElement.hidden = false;
+
+        // Reinicia o estado visual para que o fade-in seja aplicado em seguida.
+        nextElement.classList.remove('active');
+        void nextElement.offsetWidth;
+
+        formState.currentStep = nextStep;
+        updateProgress();
+        updateStepCounter();
+
+        requestAnimationFrame(() => {
+          nextElement.classList.add('active');
+          formState.isTransitioning = false;
+          if (nextStep === 9) {
+            validateAndRefresh();
+          }
+        });
+      }, 250);
+    }
+
+    function selectOption(button) {
+      if (formState.isTransitioning || formState.selectionPending) return;
+
+      const currentStepElement = document.querySelector('.step[data-step="' + formState.currentStep + '"]');
+      if (!currentStepElement || !currentStepElement.contains(button)) return;
+
+      const key = button.dataset.key;
+      const value = button.dataset.value;
+
+      formState.answers[key] = value;
+      formState.selectionPending = true;
+
+      currentStepElement.querySelectorAll('.option-card').forEach((card) => {
+        const selected = card === button;
+        card.classList.toggle('selected', selected);
+        card.setAttribute('aria-pressed', selected ? 'true' : 'false');
+      });
+
+      window.setTimeout(() => {
+        formState.selectionPending = false;
+        if (formState.currentStep < 8) {
+          goToStep(formState.currentStep + 1);
+        } else if (formState.currentStep === 8) {
+          goToStep(9);
+        }
+      }, 300);
+    }
+
+    function goBack() {
+      if (formState.currentStep > 1 && !formState.isTransitioning && !formState.selectionPending) {
+        goToStep(formState.currentStep - 1);
+      }
+    }
+
+    document.querySelectorAll('.option-card').forEach((button) => {
+      button.addEventListener('click', () => selectOption(button));
+    });
+
+    document.querySelectorAll('[data-back]').forEach((button) => {
+      button.addEventListener('click', goBack);
+    });
+
+    function getPhoneDigits() {
+      return whatsappInput.value.replace(/\D/g, '');
+    }
+
+    function formatPhone(value) {
+      const digits = value.replace(/\D/g, '').slice(0, 11);
+
+      if (digits.length === 0) return '';
+      if (digits.length <= 2) return '(' + digits;
+
+      const areaCode = digits.slice(0, 2);
+      const number = digits.slice(2);
+
+      if (number.length <= 4) return '(' + areaCode + ') ' + number;
+      if (digits.length <= 10) {
+        return '(' + areaCode + ') ' + number.slice(0, 4) + '-' + number.slice(4);
+      }
+      return '(' + areaCode + ') ' + number.slice(0, 5) + '-' + number.slice(5);
+    }
+
+    whatsappInput.addEventListener('input', (event) => {
+      const cursorAtEnd = event.target.selectionStart === event.target.value.length;
+      event.target.value = formatPhone(event.target.value);
+      if (cursorAtEnd) {
+        event.target.setSelectionRange(event.target.value.length, event.target.value.length);
+      }
+      validateAndRefresh();
+    });
+
+    function fieldIsValid(name) {
+      const field = contactFields[name];
+      const value = field.value.trim();
+
+      if (!value) return false;
+
+      if (name === 'email') {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+      }
+
+      if (name === 'whatsapp') {
+        const digits = getPhoneDigits();
+        return digits.length >= 10 && digits.length <= 11;
+      }
+
+      return value.length >= 2;
+    }
+
+    function errorMessage(name) {
+      const value = contactFields[name].value.trim();
+
+      if (!value) return 'Este campo é obrigatório.';
+      if (name === 'nome' && value.length < 2) return 'Informe seu nome completo.';
+      if (name === 'empresa' && value.length < 2) return 'Informe o nome da sua empresa.';
+      if (name === 'email' && !fieldIsValid('email')) return 'Digite um e-mail válido.';
+      if (name === 'whatsapp' && getPhoneDigits().length < 10) return 'Informe um WhatsApp com DDD.';
+      if (name === 'whatsapp' && getPhoneDigits().length > 11) return 'Confira o número informado.';
+      return '';
+    }
+
+    function showFieldError(name, shouldShow) {
+      const field = contactFields[name];
+      const error = document.getElementById(name + 'Error');
+      const message = shouldShow ? errorMessage(name) : '';
+
+      error.textContent = message;
+      field.setAttribute('aria-invalid', message ? 'true' : 'false');
+      return !message;
+    }
+
+    function validateAndRefresh() {
+      const allValid = Object.keys(contactFields).every((name) => fieldIsValid(name));
+      submitButton.disabled = !allValid || formState.isSubmitting;
+
+      Object.keys(contactFields).forEach((name) => {
+        const field = contactFields[name];
+        if (field.dataset.touched === 'true') {
+          showFieldError(name, true);
+        }
+      });
+
+      return allValid;
+    }
+
+    Object.entries(contactFields).forEach(([name, field]) => {
+      field.addEventListener('input', validateAndRefresh);
+      field.addEventListener('blur', () => {
+        field.dataset.touched = 'true';
+        showFieldError(name, true);
+        validateAndRefresh();
+      });
+    });
+
+    const stepLabels = [
+      ['perfil', 'Perfil da operação'],
+      ['regime_tributario', 'Regime tributário'],
+      ['canal_principal', 'Canal principal'],
+      ['faturamento_30_dias', 'Faturamento em 30 dias'],
+      ['tamanho_equipe', 'Tamanho da equipe'],
+      ['consultoria_anterior', 'Experiência com consultoria'],
+      ['quando_comecar', 'Quando quer começar'],
+      ['conhecia_nexum', 'Já conhecia a Nexum']
+    ];
+
+    function buildCalendlyUrl(contact) {
+      const pending = stepLabels.filter(([key]) => !formState.answers[key]);
+      if (pending.length) throw new Error('Há perguntas ainda sem resposta.');
+
+      const resumo = [
+        'Empresa: ' + contact.empresa,
+        ...stepLabels.map(([key, label]) => label + ': ' + formState.answers[key])
+      ].map((linha) => '• ' + linha).join('\n');
+
+      // No Calendly, criar duas perguntas personalizadas, NESTA ORDEM:
+      // a1 = WhatsApp com DDD (Telefone ou Texto curto)
+      // a2 = Respostas do formulário (Várias linhas)
+      // "notes" não está na lista oficial de parâmetros suportados para pré-preenchimento.
+      const url = new URL(CALENDLY_BASE_URL);
+      url.searchParams.set('name', contact.nome);
+      url.searchParams.set('email', contact.email);
+      url.searchParams.set('a1', contact.whatsapp);
+      url.searchParams.set('a2', resumo);
+      return url.toString();
+    }
+
+    function showTransition(url) {
+      form.hidden = true;
+      const fallbackLink = document.getElementById('calendlyFallback');
+      fallbackLink.href = url;
+      successScreen.hidden = false;
+      successScreen.scrollIntoView({ behavior: 'auto', block: 'center' });
+      document.getElementById('successTitle').setAttribute('tabindex', '-1');
+      document.getElementById('successTitle').focus({ preventScroll: true });
+      // Redirecionamento automático. A seleção do horário e a confirmação
+      // da reunião acontecem SOMENTE no Calendly.
+      window.setTimeout(() => { window.location.assign(url); }, 2500);
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (formState.isSubmitting || formState.isTransitioning || formState.currentStep !== 9) return;
+
+      if (!validateAndRefresh()) {
+        Object.keys(contactFields).forEach((name) => {
+          contactFields[name].dataset.touched = 'true';
+          showFieldError(name, true);
+        });
+        return;
+      }
+
+      const contact = {
+        nome: contactFields.nome.value.trim(),
+        empresa: contactFields.empresa.value.trim(),
+        email: contactFields.email.value.trim(),
+        whatsapp: getPhoneDigits()
+      };
+
+      let calendlyUrl;
+      try {
+        calendlyUrl = buildCalendlyUrl(contact);
+      } catch (error) {
+        console.warn('Formulário incompleto:', error.message);
+        return;
+      }
+
+      formState.isSubmitting = true;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Redirecionando...';
+      showTransition(calendlyUrl);
+    });
+
+    updateProgress();
+    updateStepCounter();
+  </script>
+
+  <!-- INTEGRAÇÃO CALENDLY — CONFIGURAÇÃO INFORMADA PELO RESPONSÁVEL
+    Evento confirmado: https://calendly.com/evertoncostaluis/consultoria-gratuita-1h20
+    a1: WhatsApp com DDD; a2: Respostas do formulário (empresa + oito respostas).
+    O responsável informou que o evento está configurado, que os dois campos são
+    opcionais e que o pré-preenchimento foi testado com sucesso.
+    Pendência de publicação: fornecer uma Política de Privacidade real para o
+    tratamento e a transferência dos dados ao Calendly.
+    Este HTML não envia leads a um CRM ou servidor: a reserva só é concluída
+    quando o visitante seleciona o horário e confirma o agendamento no Calendly.
+  -->
+</body>
+</html>
